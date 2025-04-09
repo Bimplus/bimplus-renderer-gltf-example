@@ -1,0 +1,9 @@
+#Ignore  worker file, 
+# it was copied to root location by postinstall step of package.json
+partitionVerticesWorker.bimplus-renderer.worker.js
+
+# Ignore yarn.lock file, we use npm
+yarn.lock
+/node_modules
+npm-debug.log
+yarn-error.log

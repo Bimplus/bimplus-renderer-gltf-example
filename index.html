@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BimplusRendererGLTFExample</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <div
+      class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"
+    >
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Bimplus</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <button
+            class="mdl-button mdl-js-button mdl-button--icon project-selection-button"
+            id="open-project-selection"
+          >
+            <em class="material-icons">folder_open</em>
+          </button>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Project Models</span>
+        <nav class="mdl-navigation">
+          <ul id="modelsList" class="demo-list-control mdl-list"></ul>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content full-area">
+          <div class="full-height full-area" id="mainViewportContainer">
+            <div id="spinner" class="centerSpinner">
+              <div
+                class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"
+              ></div>
+            </div>
+
+            <!-- Object properties panel -->
+            <div
+              id="objectProperties"
+              class="objectPropertiesCard objectProperties"
+            >
+              <div class="mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Object Properties</h2>
+                </div>
+                <div class="mdl-card__media">
+                  <iframe
+                    title="Object properties"
+                    id="bimplusObjectProperties"
+                    height="100%"
+                    class="objectPropertiesIFrame"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <!---->
+          </div>
+
+          <!-- ============================================================================== -->
+          <!-- For Material Design Lite icon name overview see https://fonts.google.com/icons -->
+          <!-- ============================================================================== -->
+
+          <!-- 3D view HUD menu -->
+          <div class="hud-menu">
+            <button
+              id="menuView"
+              title="Define camera position"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">videocam</em>
+            </button>
+            <button
+              id="menuIsolate"
+              title="Isolate objects"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">opacity</em>
+            </button>
+            <button
+              id="menuColorize"
+              title="Colorize objects"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">brush</em>
+            </button>
+            <button
+              id="menuZoomTo"
+              title="Zoom to selected objects"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">center_focus_strong</em>
+            </button>
+            <button
+              id="menuSettings"
+              title="Define settings"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">settings</em>
+            </button>
+            <label
+              class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect"
+              for="icon-toggle-hide"
+              title="Hide objects"
+            >
+              <input
+                type="checkbox"
+                id="icon-toggle-hide"
+                class="mdl-icon-toggle__input"
+              />
+              <em class="mdl-icon-toggle__label material-icons"
+                >visibility_off</em
+              >
+            </label>
+            <button
+              id="menuResetHiddenObjects"
+              title="Reset hidden objects"
+              class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            >
+              <em class="material-icons">refresh</em>
+            </button>
+          </div>
+          <!---->
+
+          <!-- HUD menu sub menus -->
+          <ul
+            class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="menuView"
+          >
+            <li
+              id="menuViewResetView"
+              class="mdl-menu__item mdl-menu__item--full-bleed-divider"
+            >
+              Reset view
+            </li>
+            <li id="menuViewFrontView" class="mdl-menu__item">Front view</li>
+            <li id="menuViewTopView" class="mdl-menu__item">Top view</li>
+            <li id="menuViewSideView" class="mdl-menu__item">Side view</li>
+            <li id="menuViewPerspectiveView" class="mdl-menu__item">
+              Perspective view
+            </li>
+          </ul>
+
+          <ul
+            class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="menuIsolate"
+          >
+            <li
+              id="menuIsolateReset"
+              class="mdl-menu__item mdl-menu__item--full-bleed-divider"
+            >
+              Reset isolation
+            </li>
+            <li id="menuIsolateIsolate" class="mdl-menu__item">Isolate</li>
+            <li id="menuIsolateClippingBox" class="mdl-menu__item">
+              Clipping box
+            </li>
+            <li id="menuIsolateHide" class="mdl-menu__item">Hide unisolated</li>
+          </ul>
+
+          <ul
+            class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="menuColorize"
+          >
+            <li id="menuColorAllObjectsInGreen" class="mdl-menu__item">
+              Set green to all objects
+            </li>
+            <li id="menuColorAllObjectsInBlue" class="mdl-menu__item">
+              Set blue to all objects
+            </li>
+            <li id="menuResetColorOfAllObjects" class="mdl-menu__item">
+              Reset color of all objects
+            </li>
+          </ul>
+
+          <ul
+            class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+            for="menuSettings"
+          >
+            <li id="menuToggleAmbientOcclusion" class="mdl-menu__item">
+              Toggle ambient occlusion
+            </li>
+            <li id="menuToggleShadows" class="mdl-menu__item">
+              Toggle shadows
+            </li>
+            <li id="menuToggleLightColor" class="mdl-menu__item">
+              Toggle light color
+            </li>
+            <li id="menuToggleAmbientLightColor" class="mdl-menu__item">
+              Toggle ambient light color
+            </li>
+          </ul>
+          <!---->
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
