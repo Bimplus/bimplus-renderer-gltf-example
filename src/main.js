@@ -29,6 +29,12 @@ let createViewport = () => {
     nearClippingPlane: 0.01,
 
     slideThmbSize: [180, 112],
+
+    // Enable usage of frame selecton
+    //   BlueBlue:    (LEFT  MOUSE BUTTON) + SHIFT key
+    //   GreenGreen:  (LEFT  MOUSE BUTTON) + CTRL key
+    //                (RIGHT MOUSE BUTTON) + CTRL key
+    useFrameSelection: true,
   };
 
   let units = {
@@ -536,4 +542,3 @@ async function init() {
     }
   );
 }
-
