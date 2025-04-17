@@ -76,6 +76,38 @@
             >
               <em class="material-icons">videocam</em>
             </button>
+
+            <label
+              class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect"
+              for="icon-toggle-camera-type"
+              id="camera-toggle-label"
+              title="Camera type - perspective"
+            >
+              <input
+                type="checkbox"
+                id="icon-toggle-camera-type"
+                class="mdl-icon-toggle__input"
+              />
+              <em class="mdl-icon-toggle__label">
+                <!-- Perspective Icon (default state) -->
+                <span class="blended-icon toggle-icon icon-off">
+                  <span class="material-icons base-icon">videocam</span>
+                  <span class="material-icons overlay-icon">filter_list</span>
+                </span>
+
+                <!-- Orthographic Icon -->
+                <span
+                  class="blended-icon toggle-icon icon-on"
+                  style="display: none"
+                >
+                  <span class="material-icons base-icon">videocam</span>
+                  <span class="material-icons overlay-icon"
+                    >filter_list_off</span
+                  >
+                </span>
+              </em>
+            </label>
+
             <button
               id="menuIsolate"
               title="Isolate objects"

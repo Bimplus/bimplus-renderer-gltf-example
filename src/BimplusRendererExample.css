@@ -74,3 +74,23 @@ div.objectPropertiesCard {
 .objectPropertiesIFrame {
   height: 750px;
 }
+
+/* Bring two material icons together: videocam + inner info icon */
+.blended-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.base-icon {
+  font-size: 36px !important;
+  color: black;
+}
+
+.overlay-icon {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  font-size: 18px !important;
+  color: white;
+  pointer-events: none;
+}

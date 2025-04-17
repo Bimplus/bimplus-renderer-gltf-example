@@ -69,6 +69,7 @@ let createViewport = () => {
     settings: settings,
     units: units,
     domElementId: "mainViewportContainer",
+    name: "mainRendererViewport",
     GPUPick: true,
   });
 };
@@ -157,6 +158,29 @@ let setAllObjectsToBlue = function () {
 let resetColorForAllObjects = function () {
   viewport3D.resetColoredObjects();
   viewport3D.draw();
+};
+
+// ===============================================================
+// Toggle camera type
+// ===============================================================
+let toggleCameraType = function () {
+  const $checkbox = $("#icon-toggle-camera-type");
+  const isChecked = $checkbox.is(":checked");
+  const $label = $checkbox.closest("label");
+
+  if (isChecked) {
+    $label.find(".icon-on").show();
+    $label.find(".icon-off").hide();
+    $label.attr("title", "Camera type is orthographic");
+  } else {
+    $label.find(".icon-on").hide();
+    $label.find(".icon-off").show();
+    $label.attr("title", "Camera type is perspective");
+  }
+
+  console.log("Camera type:", isChecked ? "Orthographic" : "Perspective");
+
+  viewport3D.toggleProjectionMode(viewport3D);
 };
 
 // ===============================================================
@@ -333,6 +357,10 @@ let registerEventListener = () => {
 
   $("#icon-toggle-hide").click(function () {
     toggleHideObject(this.checked);
+  });
+
+  $("#icon-toggle-camera-type").click(function () {
+    toggleCameraType();
   });
 
   $("#menuResetHiddenObjects").click(function () {
