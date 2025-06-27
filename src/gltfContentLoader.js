@@ -1,6 +1,6 @@
 import * as Renderer from "bimplus-renderer";
 
-export default class GltfContentLoader extends Renderer.BaseContentLoader {
+export default class GltfContentLoader extends Renderer.ContentLoader {
   constructor(viewport, project, model, layer, nodeId) {
     super(viewport);
 
