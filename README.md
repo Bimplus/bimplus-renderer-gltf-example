@@ -2,7 +2,7 @@ Bimplus Renderer GLTF Example
 =========
 
 This small application demonstrates how to use the Bimplus component:
-- [bimplus-renderer](https://doc.allplan.com/display/bimpluspublic/Bimplus+Renderer+Reference)
+- [bimplus-renderer](https://nemetschekprime.atlassian.net/wiki/spaces/bimpluspublic/pages/1090127443/Bimplus+Renderer+Reference)
 
 The packages are available in [npmjs](https://www.npmjs.com/search?q=bimplus) or in the
 Bimplus repositories at [github](https://github.com/bimplus).
