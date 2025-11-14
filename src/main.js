@@ -546,7 +546,7 @@ async function init() {
         layer,
         nodeId
       );
-      await gltfContentLoader.initalize();
+      await gltfContentLoader.initialize();
 
       /// Create model layers
       await gltfContentLoader.createModelLayers(model, layers);
